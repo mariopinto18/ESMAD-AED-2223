@@ -1,0 +1,12 @@
+Portugal;Europa
+Espanha;Europa
+França;Europa
+Holanda;Europa
+Japão;Asia
+China;Asia
+Filipinas;Asia
+Australia;Oceania
+Lituania;Europa
+Tailandia;Asia
+Grecia;Europa
+Belgica;Europa
