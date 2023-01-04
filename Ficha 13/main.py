@@ -151,10 +151,16 @@ def panelAutenticarUser():
         userAutenticado.set("")
         btnIniciarSessão.config(text = "Iniciar Sessão")
         return
-   panelUsers = PanedWindow(window, width = 550, height = 300)
-   panelUsers.place(x=450, y=50)
+   panelUsers = PanedWindow(window, width = 550, height = 300, relief = "sunken")
+   panelUsers.place(x=450, y=100)    # 450, 50
  
-# Username
+# Imagem
+   containerImage = Canvas(panelUsers, height = 128, width=128)
+   containerImage.place(x=50, y=70) 
+   global img
+   img = PhotoImage(file = ".\imagens\\loginCanvas.png")
+   containerImage.create_image(64, 64, image = img)
+  # Username
    labelUsers = Label(panelUsers, text ="Username:")
    labelUsers.place(x=200, y= 100)
    userName = StringVar()
@@ -170,6 +176,7 @@ def panelAutenticarUser():
    btnValidar= Button(panelUsers, text = "Validar Conta", width=25, height=3,
                       command = lambda: autenticarUser(userName.get(), userPass.get(), panelUsers))
    btnValidar.place(x=260, y= 200) 
+   
 
 
 
@@ -180,13 +187,19 @@ def autenticarUser(userName, userPass, panelUsers):
    if userAutenticado.get() != "":
       btnIniciarSessão.config(text = "Terminar Sessão")
       panelUsers.place_forget()
-      
+      containerHome()
 
 
 
 def panelCriarConta():
-   panelUsers = PanedWindow(window, width = 550, height = 300)
-   panelUsers.place(x=450, y=50)    # 250, 50
+   panelUsers = PanedWindow(window, width = 550, height = 300, relief = "sunken")
+   panelUsers.place(x=450, y=100)    # 450, 50
+   # Imagem
+   containerImage = Canvas(panelUsers, height = 128, width=128)
+   containerImage.place(x=50, y=70) 
+   global img
+   img = PhotoImage(file = ".\imagens\\loginCanvas.png")
+   containerImage.create_image(64, 64, image = img)
 # Username
    labelUsers = Label(panelUsers, text ="Username:")
    labelUsers.place(x=200, y= 50)
@@ -212,6 +225,17 @@ def panelCriarConta():
 
 
 
+def containerHome():
+   #-- Painel com opções de menu
+   panel2 = PanedWindow(window, width=750, height=450)
+   panel2.place(x=250, y=50)
+   #------------- Imagem de entrada da App
+   ctnCanvas = Canvas(panel2, width = 750, height= 450)
+   ctnCanvas.place(x=0, y= 0)
+   global img
+   img = PhotoImage(file = ".\imagens\\running.png")
+   ctnCanvas.create_image(375, 225, image = img)
+
 
 
 # ---------------Main-------------------------------------------
@@ -230,28 +254,34 @@ window.title('my Running App')
 panel1 = PanedWindow(window, bg = "gray", width=250, height=500)
 panel1.place(x=0, y=0)
 
+imageHome = PhotoImage(file = "imagens\\icoHome.png" )
+btnHome = Button(panel1, text = "Início \nHome", image = imageHome, compound=LEFT, relief = "sunken", 
+                    width = 230, height = 68, font="calibri, 11",
+                    command=containerHome)
+btnHome.place (x=5, y=50)
+
 imageIco1 = PhotoImage(file = "imagens\\icoOp1.png" )
 btnOpcao1 = Button(panel1, text = "Gerir \nProvas", image = imageIco1, compound=LEFT, relief = "sunken", 
                     width = 230, height = 68, font="calibri, 11",
                     command=containerGerirProvas)
-btnOpcao1.place (x=5, y=50)
+btnOpcao1.place (x=5, y=130)
 
 imageIco2 = PhotoImage(file = "imagens\\icoOp2.png" )
 btnOpcao2 = Button(panel1, text = "Consultar \nProvas", relief = "sunken", image = imageIco2, compound=LEFT,
                 width = 230, height = 68,  font="calibri, 11",
                 command= containerConsultarProvas)
-btnOpcao2.place (x=5, y=145)
+btnOpcao2.place (x=5, y=210)
 
 imageIco3 = PhotoImage(file = "imagens\\icoOp3.png" )
 btnOpcao3 = Button(panel1, text = "Dashboard\nÁrea Pessoal", relief = "sunken", image = imageIco3, compound=LEFT,
                 width = 230, height = 68,  font="calibri, 11", state="disabled")
-btnOpcao3.place (x=5, y=235)
+btnOpcao3.place (x=5, y=290)
 
 imageIco4 = PhotoImage(file = "imagens\\icoOp4.png" )
 btnOpcao4 = Button(panel1, text = "Sair App", relief = "sunken", image = imageIco4, compound=LEFT,
                 width = 230, height = 68,  font="calibri, 11", 
                 command = window.destroy)
-btnOpcao4.place (x=5, y=325)
+btnOpcao4.place (x=5, y=370)
 
 
 
@@ -263,109 +293,21 @@ userAutenticado.set("")
 labelHeader = Label(window, textvariable= userAutenticado, fg = "blue", font="calibri, 11")
 labelHeader.place(x= 310, y= 10)
 
-btnIniciarSessão = Button (window, text = "Iniciar Sessão", width = 25, height=2, command = panelAutenticarUser)
-btnIniciarSessão.place(x=700, y=5)
+imageLogin = PhotoImage(file = "imagens\\icoLogin.png" )
+btnIniciarSessão = Button (window, image = imageLogin, relief = "flat",  compound=TOP,
+                     width = 78, height=38, text = "Iniciar Sessão", command = panelAutenticarUser)
+btnIniciarSessão.place(x=790, y=5)
 
-btnCriarConta = Button (window, text = "Criar Conta", width = 25, height=2, command=panelCriarConta)
-btnCriarConta.place(x=850, y=5)
+imageConta = PhotoImage(file = "imagens\\icoConta.png" )
+btnCriarConta = Button (window, image = imageConta, width = 64, height=38, relief="flat", text = "Criar Conta",
+                  compound = TOP, command=panelCriarConta)
+btnCriarConta.place(x=890, y=5)
 
-
-
-
-#------------- Imagem de entrada da App
-ctnCanvas = Canvas(window, width = 750, height= 450)
-ctnCanvas.place(x=250, y= 50)
-img = PhotoImage(file = ".\imagens\\running.png")
-ctnCanvas.create_image(375, 225, image = img)
+containerHome()
 
 
 
-"""
-
-choice1 = IntVar()
-choice1.set(1) 
-choice2 = IntVar()
-choice2.set(0) 
-
-ck1 = Checkbutton(window, text = "Trail Curto", variable = choice1)
-ck2 = Checkbutton(window, text = "Ultra Trail ", variable = choice2)
-ck1.place(x=50, y=20)
-ck2.place(x=150, y=20)
-
-btnImage = Image.open("./imagens/pesquisar.png")
-# faz  o resize da imagem, em pixels   image.ANTIALIAS => algoritmo usado para o resize
-btnImage = btnImage.resize((35, 35), Image.ANTIALIAS)
-btnImage1 = ImageTk.PhotoImage(btnImage)
-btnSearch = Button(window, width=35, height=35, image = btnImage1 ,  relief = "flat", bd=3, command = viewTrails)
-btnSearch.place(x=300, y=12)
-
-btnImage = Image.open("./imagens/asc.png")
-# faz  o resize da imagem, em pixels   image.ANTIALIAS => algoritmo usado para o resize
-btnImage = btnImage.resize((35, 35), Image.ANTIALIAS)
-btnImage2 = ImageTk.PhotoImage(btnImage)
-btnAsc = Button(window, width=35, height=35, image = btnImage2 ,  relief = "flat", bd=3, command = viewTrails)
-btnAsc.place(x=400, y=12)
-
-btnImage = Image.open("./imagens/desc.png")
-# faz  o resize da imagem, em pixels   image.ANTIALIAS => algoritmo usado para o resize
-btnImage = btnImage.resize((35, 35), Image.ANTIALIAS)
-btnImage3 = ImageTk.PhotoImage(btnImage)
-btnDesc = Button(window, width=35, height=35, image = btnImage3 ,  relief = "flat", bd=3, command = viewTrails)
-btnDesc.place(x=500, y=12)
 
 
-tree = ttk.Treeview(window, columns = ("Prova", "Data", "Local"), show = "headings", height = 12, selectmode = "browse")
-tree.column("Prova", width = 220, anchor = "w")
-tree.column("Data", width = 100, anchor = "c")
-tree.column("Local", width = 220, anchor = "c")
-
-tree.heading("Prova", text = "Prova")
-tree.heading("Data", text = "Data")
-tree.heading("Local", text = "Local")
-tree.place(x=20, y=70)
-
-
-
-lbNumProvas = Label(window, text = "Nº de provas", font = ("Helvetica", "10"))
-lbNumProvas.place(x=50, y=350)
-
-numProvas = StringVar()
-txt_num_provas = Entry(window, width=10, textvariable = numProvas)
-txt_num_provas.place(x=150, y=350)
-
-btnAddFav = Button(window, text = "Adicionar Favoritos", height=3, command = addFav)
-btnAddFav.place(x=570, y=120)
-
-btnRemFav = Button(window, text = "Remover  Favoritos", height=3)
-btnRemFav.place(x=570, y=180)
-
-
-panel1 = PanedWindow(window, width = 300, height = 500, bd = "3", relief = "sunken" )
-panel1.place(x=700, y=1)
-
-lbl1= Label(panel1, text = "Favoritos", font = ("Helvetica", "11") )
-lbl1.place(x=100, y=30)
-
-lboxFav = Listbox(panel1, width=40, height=15)
-lboxFav.place(x=20, y=50)
-
-btnRemFav = Button(panel1, text = "Guardar Favoritos", height=3, width=35)
-btnRemFav.place(x=20, y=320)
-
-
-# container Canvas, usado para aplicações de desenho: imagens e formas geométricas
-canvas = Canvas(window, width = 300, height = 130, bd = 4, relief = "sunken")
-canvas.place(x=250, y=350)
-
-imagem = Image.open("./imagens/img1.png")
-imagem = imagem.resize((300,150), Image.ANTIALIAS)
-imgTrail = ImageTk.PhotoImage(imagem)
-#canvas.create_image(0, 0, anchor='nw', image=img)
-image_id = canvas.create_image(0, 0, anchor='nw', image=imgTrail)
-
-btn_selecionar_img = Button(window, width=18, height = 2, text = "Selecionar Imagem", relief = "raised", bd=1, command = selecionar_imagem)
-btn_selecionar_img.place(x=100, y=420)
-
-"""
 
 window.mainloop()   # event listening loop by calling the mainloop()
