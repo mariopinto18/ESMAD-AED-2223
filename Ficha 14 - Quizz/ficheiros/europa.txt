@@ -1,0 +1,10 @@
+Lisboa;Portugal;Espanha;França;Reino Unido;Portugal;
+Tirana;Austria;Macedonia;Croacia;Albania;Albania;
+Viena;Austria;Belgica;Bulgaria;Bosnia;Austria;
+Sofia;Hungria;Bulgaria;Romenia;Bosnia;Bulgaria;
+Minsk;Bielorussia;Estonia;Ucrania;Lituania;Bielorussia;
+Bucareste;Austria;Hungria;Bulgaria;Romenia;Romenia;
+Bratislava;Hungria;Bulgaria;Romenia;Eslovaquia;Eslovaquia;
+Budapeste;Hungria;Bulgaria;Romenia;Eslovaquia;Hungria;
+Tallinn;Estonia;Ucrania;Lituania;Russia;Estonia;
+Helsinquia;Lituania;Finlandia;Noruega;Dinamarca;Finlandia;

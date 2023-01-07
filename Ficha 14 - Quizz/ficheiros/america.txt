@@ -1,0 +1,10 @@
+Buenos Aires;Argentina;Venezuela;Nicaragua;Bermuda;Argentina;
+La Paz;Bolivia;Venezuela;Nicaragua;Bermuda;Bolivia;
+Caracas;Argentina;Venezuela;Nicaragua;Bermuda;Venezuela;
+Brasilia;Chile;Ecuador;Uruguai;Brasil;Brasil;
+Lima;Peru;Uruguai;Sao Salvador;Mexico;Peru;
+Montevideo;Peru;Uruguai;Sao Salvador;Mexico;Uruguai;
+Quito;Mexico;Ecuador;Brazil;Chile;Ecuador;
+Assuncao;Colombia;Peru;Paraguai;Chile;Paraguai;
+Managua;Bermuda;Sao Salvador;Mexico;Nicaragua;Nicaragua;
+Hamilton;Bermuda;Sao Salvador;Mexico;Nicaragua;Bermuda;

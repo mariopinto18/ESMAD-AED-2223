@@ -1,0 +1,10 @@
+Kabul;Casaquistao;Birmania;Libano;Afeganistao;Afeganistao;
+Nova Deli;India;Vietname;Siria;Irao;India;
+Beirute;Quatar;Israel;Siria;Libano;Libano;
+Damasco;Quatar;Israel;Siria;Libano;Siria;
+Hanoi;Birmania;Cambodja;Vietname;Laos;Vietname;
+Banguecoque;Birmania;Cambodja;Vietname;Tailandia;Tailandia;
+Pyongyang;Coreia do Sul;Coreia do Norte;China;Japao;Coreia do Norte;
+Ancara;Quatar;Turquia;Siria;Libano;Turquia;
+Riade;Arabia Saudita;Bahrein;Egito;Quatar;Arabia Saudita;
+Manila;Tailandia;Filipinas;China;Vietname;Tailandia;
