@@ -4,18 +4,11 @@ from tkinter import ttk          # extensão do tkinter, inclui treeview
 from tkinter import filedialog   # filedialog boxes
 from PIL import ImageTk,Image    # Imagens .jpg ou .png
 from tkinter import messagebox   #  messagebox
-
+from tkinter import ttk
 from users import *
 from provas import *
 from atividades import *
 
-
-
-
-
-
-def containerAutenticarCriarContas():
-    return
 
 
 def containerGerirProvas():
@@ -23,29 +16,29 @@ def containerGerirProvas():
     panelProvas.place(x=250, y= 50)
 
     lblProva = Label(panelProvas, text = "Prova")
-    lblProva.place(x=70, y=70)
+    lblProva.place(x=30, y=70)
 
     prova = StringVar()
     entryProva = Entry(panelProvas, width=25, textvariable=prova)
-    entryProva.place(x=120, y= 70) 
+    entryProva.place(x=80, y= 70) 
 
     lblData = Label(panelProvas, text = "Data")
-    lblData.place(x=70, y=120)
+    lblData.place(x=30, y=120)
 
     data = StringVar()
     entryData = Entry(panelProvas, width=25, textvariable=data)
-    entryData.place(x=120, y= 120) 
+    entryData.place(x=80, y= 120) 
 
     lblLocal = Label(panelProvas, text = "Local")
-    lblLocal.place(x=70, y=170)
+    lblLocal.place(x=30, y=170)
 
     local=StringVar()
     entryLocal = Entry(panelProvas, width=25, textvariable=local)
-    entryLocal.place(x=120, y= 170) 
+    entryLocal.place(x=80, y= 170) 
 
 
     lblLocal = Label(panelProvas, text = "Tipo")
-    lblLocal.place(x=70, y=220)
+    lblLocal.place(x=30, y=220)
 
     tipoprova = StringVar()
     tipoprova.set("Caminhada")
@@ -53,28 +46,42 @@ def containerGerirProvas():
     rd2 = Radiobutton(panelProvas, text = "5K", value = "5K",               variable= tipoprova)
     rd3 = Radiobutton(panelProvas, text = "10K", value = "10K",             variable= tipoprova)
     rd4 = Radiobutton(panelProvas, text = "21K", value = "21K",             variable= tipoprova)
-    rd1.place(x= 120, y= 220)
-    rd2.place(x= 120, y= 250)
-    rd3.place(x= 120, y= 280)
-    rd4.place(x= 120, y= 310)
+    rd1.place(x= 80, y= 225)
+    rd2.place(x= 80, y= 250)
+    rd3.place(x= 80, y= 280)
+    rd4.place(x= 80, y= 310)
 
-    lstprovas = Listbox(panelProvas, width = 40, height=12)
-    lstprovas.place(x= 400, y=70)
+    #lstprovas = Listbox(panelProvas, width = 50, height=12)
+    #lstprovas.place(x= 400, y=70)
+    
+    tview = ttk.Treeview(panelProvas, height=10,  selectmode= "browse", 
+            columns = ("Prova", "Data", "Local", "Tipo"), show = "headings")
+    
+    tview.column("Prova", width = 100,   anchor="c")
+    tview.column("Data", width = 100,  anchor="c")          # c- center, e - direita, w- esquerda
+    tview.column("Local", width = 100,   anchor="c")
+    tview.column("Tipo", width = 140,   anchor="c")
+    tview.heading("Prova", text = "Prova")
+    tview.heading("Data", text = "Data")
+    tview.heading("Local", text = "Local")
+    tview.heading("Tipo", text = "Tipo")
+    tview.place(x=280, y=70)
+
+   
 
     listaProvas= lerProvas()
-    refreshListboxProvas(listaProvas, lstprovas)
+    refreshListboxProvas(listaProvas, tview)
 
     global image1, image2
     image1 = PhotoImage(file = "imagens\\adicionar.png" )
-    #btnInserir = Button(panelProvas, text = "Inserir", width=25, height=3, 
-    btnInserir = Button(panelProvas, image = image1, width=48, height=48, 
-                command= lambda: inserirProva(prova.get(), data.get(), local.get(), tipoprova.get(), lstprovas))
-    btnInserir.place(x=400, y= 350)
+    btnInserir = Button(panelProvas, image = image1, width=200, height=48, text = "Inserir Prova", compound=LEFT,
+                command= lambda: inserirProva(prova.get(), data.get(), local.get(), tipoprova.get(), tview))
+    btnInserir.place(x=280, y= 320)
     
     image2 = PhotoImage(file = "imagens\\remover.png" )
-    btnRemover = Button(panelProvas, image = image2, width=48, height=48, 
-                command= lambda: inserirProva(prova.get(), data.get(), local.get(), tipoprova.get()))
-    btnRemover.place(x=550, y= 350)
+    btnRemover = Button(panelProvas, image = image2, width=200, height=48,  text = "Remover Prova", compound=LEFT,
+                command= lambda: removerProva(tview))
+    btnRemover.place(x=510, y= 320)
 
 
 

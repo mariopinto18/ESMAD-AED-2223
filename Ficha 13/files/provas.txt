@@ -1,9 +1,4 @@
-S. Silvestre;2023-01-03;Porto;10K
-Corrida Vila do Conde;2023-01-08;Vila do Conde;Caminhada
-Corrida dos Reis;2023-01-13;Póvoa de Varzim;10K
-Corrida EDP;2023-02-08;Póvoa de Varzim;10K
-Prova de Paranhos;2023-02-21;Portode Varzim;10K
-Corrida do FC Porto;2023-05-10;Porto;Caminhada
-Prova Prozis S.Tirso;2023-04-10;Porto;5K
-Corrida EDP;2023-10-08;Póvoa de Varzim;21K
-Mini Maratona de Aveiro;2023-05-29;Aveiro;21K
+S. Silvestre;2023-01-07;Porto;10K
+Corrida de Vila do Conde;2023-03-10;Vila do Conde;10K
+Maratona de Aveiro;2023-05-30;Aveiro;21K
+Corrida de S. João;2023-06-21;Porto;10K
